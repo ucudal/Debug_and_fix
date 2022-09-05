@@ -52,14 +52,17 @@ namespace WordsPhrases
 
             foreach (Word word in this.words)
             {
-                phrase.Append(" ");
+                //Detecto el error en que no le quitaba los espacios a las words
+                //Corrijpo con el method 
+                word.Text= word.Text.Trim();
                 phrase.Append(word.Text);
+                phrase.Append(" ");
             }
+                
 
-            string result = phrase.ToString();
+            string result = phrase.ToString().TrimEnd();
 
             // Remueve el primer espacio que se agrega siempre
-
             return result;
         }
     }
